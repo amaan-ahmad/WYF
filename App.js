@@ -7,6 +7,7 @@ import {
   StatusBar,
   TextInput,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 
 // import {Messages} from './components/messages';
@@ -30,9 +31,7 @@ const App: () => React$Node = () => {
           {/*<Messages />*/}
           <View>
             <View style={custom.scrollViewElement}>
-              <Text style={custom.messageText}>
-                {longMsg}
-              </Text>
+              <Text style={custom.messageText}>{longMsg}</Text>
             </View>
             <View style={custom.scrollViewElement}>
               <Text style={custom.messageText}>{shortMsg}</Text>
@@ -48,6 +47,9 @@ const App: () => React$Node = () => {
         <TextInput style={custom.textinput} placeholder="Say hello :)">
           {' '}
         </TextInput>
+        <TouchableOpacity style={custom.sendButton}>
+          <Text style={custom.sendButtonText}>Send</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     </>
   );
@@ -66,11 +68,11 @@ const custom = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'red',
     height: 'auto',
-    width: '100%',
+    width: '80%',
     fontSize: 24,
     position: 'absolute',
     bottom: 0,
-    right: 0,
+    left: 0,
     backgroundColor: 'white',
   },
   myContainer: {
@@ -89,6 +91,16 @@ const custom = StyleSheet.create({
   messageText: {
     fontSize: 20,
     padding: 8,
+  },
+  sendButton: {
+    width: '20%',
+    backgroundColor: 'red',
+    alignSelf: 'flex-end',
+  },
+  sendButtonText: {
+    padding: 11.5,
+    color: 'white',
+    fontSize: 24,
   },
 });
 export default App;
